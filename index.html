@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Auvaine — The AI Receptionist for HVAC</title>
-<meta name="description" content="Auvaine answers every call, books the job, and texts you the details. Join the waitlist.">
+<meta name="description" content="Auvaine answers every call, books the job, and texts you the details. Book a short setup call.">
 <meta name="theme-color" content="#ffffff">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b1220'/%3E%3Cg stroke='white' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M9 14v4'/%3E%3Cpath d='M16 10v12'/%3E%3Cpath d='M23 14v4'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
    TOKENS
@@ -112,13 +112,8 @@ body.loaded .nav{transform:none;opacity:1}
 .nav.scrolled{background:rgba(255,255,255,.82);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-color:rgba(230,235,242,.9)}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px}
 .brand{display:flex;align-items:center;gap:10px}
-.brand-logo{
-  position:relative;display:block;flex:none;overflow:hidden;
-  width:76px;height:56px;border-radius:8px;background:var(--ink);
-}
-.brand-logo img{
-  position:absolute;left:-26px;top:-31px;max-width:none;width:129px;height:130px;
-}
+.av-logo{display:block;height:46px;width:auto;color:var(--ink)}
+.av-logo text{font-family:'Jost','Helvetica Neue',Arial,sans-serif}
 .nav-links{display:none;align-items:center;gap:32px;font-size:14px;font-weight:600;color:var(--body)}
 .nav-links a{transition:color .25s}
 .nav-links a:hover{color:var(--ink)}
@@ -162,8 +157,7 @@ body.loaded .nav{transform:none;opacity:1}
   padding:6px 16px 6px 10px;font-size:12.5px;font-weight:700;
   letter-spacing:.14em;text-transform:uppercase;color:var(--body);
 }
-.badge-logo{width:62px;height:46px;border-radius:7px}
-.badge-logo img{left:-21px;top:-25px;width:105px;height:106px}
+.badge-dot{display:block;width:8px;height:8px;border-radius:999px;background:#16a34a}
 
 h1{font-size:clamp(3rem,7.5vw,5.4rem);line-height:1.02;letter-spacing:-.02em;margin:0}
 h1 em{font-style:normal;color:var(--accent)}
@@ -285,11 +279,11 @@ h1 em{font-style:normal;color:var(--accent)}
   mask-image:radial-gradient(ellipse 70% 80% at 50% 50%, #000, transparent 75%)}
 .stat-inner{position:relative;display:grid;gap:40px;align-items:center}
 @media (min-width:768px){.stat-inner{grid-template-columns:auto 1fr;gap:80px}}
-.stat-num{font-family:'Jost',sans-serif;font-weight:300;font-size:clamp(6rem,16vw,11rem);line-height:1;letter-spacing:-.03em;color:#fff}
-.stat-num i{font-style:normal;color:var(--accent)}
+.stat-num{margin:0;font-family:'Jost',sans-serif;font-weight:500;font-size:clamp(10rem,32vw,22rem);line-height:.8;letter-spacing:-.05em;color:#fff;font-variant-numeric:tabular-nums}
+.stat-num i{font-style:normal;color:var(--accent);font-weight:500}
 .stat h2{max-width:520px;font-size:clamp(1.7rem,3.4vw,2.6rem);line-height:1.18;color:#fff}
 .stat p{margin:16px 0 0;max-width:420px;font-size:16px;line-height:1.65;color:#94a3b8}
-.stat cite{display:block;margin-top:20px;font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#475569;font-style:normal}
+.stat cite{display:block;margin-top:20px;font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#94a3b8;font-style:normal}
 
 /* ============================================================
    SECTIONS
@@ -410,6 +404,17 @@ h1 em{font-style:normal;color:var(--accent)}
 .fade-swap{animation:fadeSwap .45s var(--ease) both}
 @keyframes fadeSwap{from{opacity:0;transform:translateY(14px) scale(.97)}to{opacity:1;transform:none}}
 
+.book-cta{position:relative;overflow:hidden;padding:96px 0}
+@media (min-width:640px){.book-cta{padding:128px 0}}
+.book-cta-inner{position:relative;max-width:620px;margin:0 auto;text-align:center}
+.book-cta .btn{margin-top:36px;padding:18px 36px;font-size:17px}
+.book-cta-sub{margin:16px auto 0;max-width:420px;font-size:17px;line-height:1.65;color:var(--body)}
+.book-flow{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 28px;margin:32px 0 0;padding:0;list-style:none;font-size:14px;font-weight:600;color:var(--body)}
+.book-flow li{display:flex;align-items:center;gap:8px}
+.book-flow svg{width:14px;height:14px;color:var(--accent)}
+.book-alt{display:block;margin-top:28px}
+.btn:focus-visible,.nav-cta:focus-visible{outline-offset:4px}
+.btn:active,.nav-cta:active{transform:scale(.97);transition-duration:.1s}
 /* ============================================================
    FOOTER
    ============================================================ */
@@ -418,8 +423,6 @@ h1 em{font-style:normal;color:var(--accent)}
 @media (min-width:640px){.footer-inner{flex-direction:row;justify-content:space-between}}
 .footer-tag{font-size:12px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--mute)}
 .footer-copy{font-size:13px;font-weight:500;color:var(--mute)}
-.brand-logo.sm{width:88px;height:64px}
-.brand-logo.sm img{left:-30px;top:-35px;width:149px;height:150px}
 
 /* ============================================================
    REDUCED MOTION
@@ -432,6 +435,27 @@ h1 em{font-style:normal;color:var(--accent)}
   .pulse::before{display:none}
 }
 </style>
+<!-- ============================================================
+  LIVE DEMO INSIDE THE PAGE (Retell website widget)
+  1. In Retell, open Keys and copy your PUBLIC key (it starts with key_).
+  2. Replace PASTE_YOUR_PUBLIC_KEY below.
+  3. Delete the opening and closing comment markers around the script so it is active.
+  Until then, the demo link opens in a new tab instead.
+============================================================ -->
+<!--
+<script
+  id="retell-widget"
+  src="https://dashboard.retellai.com/retell-widget-v2.js"
+  type="module"
+  data-voice-public-key="PASTE_YOUR_PUBLIC_KEY"
+  data-voice-agent-id="agent_30bb5b11f699e534242cf4f0a2"
+  data-title="Desert Comfort demo"
+  data-fab-text="Hear a demo call"
+  data-theme-color="#0b1220"
+  data-component-color="#2563eb"
+  data-show-ai-popup="false"
+></script>
+-->
 </head>
 <body class="grain">
 
@@ -439,15 +463,13 @@ h1 em{font-style:normal;color:var(--accent)}
 <header class="nav" id="nav">
   <div class="container nav-inner">
     <a href="#top" class="brand" aria-label="Auvaine home">
-      <span class="brand-logo">
-        <img src="logo new.png" alt="Auvaine AI Consultation &amp; Audit">
-      </span>
+      <svg class="av-logo" viewBox="0 0 168 58" role="img" aria-label="Auvaine"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M72 28 84 4l12 24"/><path d="M84 4v24"/></g><text x="84" y="53" text-anchor="middle" font-size="14" font-weight="300" letter-spacing="6.5" fill="currentColor">AUVAINE</text></svg>
     </a>
     <nav class="nav-links">
       <a href="#how">How it works</a>
       <a href="#faq">FAQ</a>
     </nav>
-    <a href="#waitlist" class="nav-cta">Join the waitlist</a>
+    <a href="https://cal.com/d/2kXTecWSHHgaVStV733yzW/voice-ai-agent-implementation" class="nav-cta" target="_blank" rel="noopener">Book setup call</a>
   </div>
 </header>
 
@@ -461,9 +483,7 @@ h1 em{font-style:normal;color:var(--accent)}
 
       <div class="hero-copy">
         <p class="badge reveal">
-          <span class="brand-logo badge-logo" aria-hidden="true">
-            <img src="logo new.png" alt="">
-          </span>
+          <span class="badge-dot" aria-hidden="true"></span>
           AI receptionist for HVAC
         </p>
 
@@ -477,11 +497,9 @@ h1 em{font-style:normal;color:var(--accent)}
         </p>
 
         <div class="hero-actions reveal" data-delay="2">
-          <a href="#waitlist" class="btn btn-primary">
-            Join the waitlist
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-          </a>
-          <a href="#how" class="link-underline">See how it works</a>
+          <a href="https://cal.com/d/2kXTecWSHHgaVStV733yzW/voice-ai-agent-implementation" class="btn btn-primary" target="_blank" rel="noopener">Book your setup call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+          <a href="#" class="link-underline" data-demo hidden target="_blank" rel="noopener">Hear it answer a call</a>
+          <a href="#how" class="link-underline" id="howLink">See how it works</a>
         </div>
 
         <ul class="hero-micro reveal" data-delay="3">
@@ -553,11 +571,11 @@ h1 em{font-style:normal;color:var(--accent)}
     <div class="stat-glow" aria-hidden="true"></div>
     <div class="stat-grid" aria-hidden="true"></div>
     <div class="container stat-inner">
-      <p class="stat-num reveal"><span id="countUp">0</span><i>%</i></p>
+      <p class="stat-num reveal" aria-label="69 percent"><span id="countUp">69</span><i>%</i></p>
       <div>
-        <h2 class="reveal" data-delay="1">of missed calls never get a callback.</h2>
+        <h2 class="reveal" data-delay="1">of missed calls get no callback within 48 hours.</h2>
         <p class="reveal" data-delay="2">Every ring you can't take is a job that calls your competitor next.</p>
-        <cite class="reveal" data-delay="3">Source · Quo, 2026</cite>
+        <cite class="reveal" data-delay="3">Source · Quo, 2026 · 16.7 million missed calls</cite>
       </div>
     </div>
   </section>
@@ -661,35 +679,28 @@ h1 em{font-style:normal;color:var(--accent)}
           </button>
           <div class="faq-body"><div><p>It takes a detailed message and texts it to you instantly. Nothing slips through.</p></div></div>
         </div>
+        <div class="faq-item reveal" data-delay="3">
+          <button class="faq-q" aria-expanded="false">What happens after I book?
+            <span class="faq-plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span>
+          </button>
+          <div class="faq-body"><div><p>You pick a time. On the call we switch on call forwarding and make a test call together. Then it's live.</p></div></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ================= WAITLIST ================= -->
-  <section class="waitlist" id="waitlist">
+  <!-- ================= BOOK ================= -->
+  <section class="book-cta" id="book-call">
     <div class="waitlist-glow" aria-hidden="true"></div>
-    <div class="container waitlist-inner">
+    <div class="container book-cta-inner">
       <div class="reveal">
-        <p class="eyebrow">Early access</p>
-        <h2 class="h2">Join the waitlist.</h2>
-        <p class="waitlist-sub">Limited spots per region. We'll email you when yours opens.</p>
-      </div>
-
-      <div id="formWrap">
-        <form class="form-card reveal" data-delay="1" id="wlForm" novalidate>
-          <div class="form-grid">
-            <input class="field" name="name" autocomplete="name" placeholder="Name" required>
-            <input class="field" name="company" autocomplete="organization" placeholder="Company" required>
-            <input class="field" name="city" autocomplete="address-level2" placeholder="City" required>
-            <input class="field" name="email" type="email" autocomplete="email" placeholder="Email" required>
-          </div>
-          <button class="submit" type="submit" id="submitBtn">
-            <span id="submitLabel">Join the waitlist</span>
-            <svg id="submitIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-          </button>
-          <p class="form-error" id="formError" hidden>Something went wrong. Please try again.</p>
-          <p class="form-note">No spam. One email when your spot opens.</p>
-        </form>
+        <h2 class="h2">Put it on your phone line.</h2>
+        <p class="book-cta-sub">Pick a time. We set it up with you on a short call. Your number stays the same.</p>
+        <a href="https://cal.com/d/2kXTecWSHHgaVStV733yzW/voice-ai-agent-implementation" class="btn btn-primary" target="_blank" rel="noopener">Book your setup call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+        <ul class="book-flow">
+          <li>Pick a time</li><li>We set it up together</li><li>It starts answering</li>
+        </ul>
+        <a href="#" class="link-underline book-alt" data-demo hidden target="_blank" rel="noopener">Hear it answer a call first</a>
       </div>
     </div>
   </section>
@@ -700,9 +711,7 @@ h1 em{font-style:normal;color:var(--accent)}
 <footer class="footer">
   <div class="container footer-inner">
     <a href="#top" class="brand" aria-label="Auvaine home">
-      <span class="brand-logo sm">
-        <img src="logo new.png" alt="Auvaine AI Consultation &amp; Audit">
-      </span>
+      <svg class="av-logo" viewBox="0 0 168 58" role="img" aria-label="Auvaine"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M72 28 84 4l12 24"/><path d="M84 4v24"/></g><text x="84" y="53" text-anchor="middle" font-size="14" font-weight="300" letter-spacing="6.5" fill="currentColor">AUVAINE</text></svg>
     </a>
     <p class="footer-copy">&copy; <span id="year"></span> Auvaine</p>
   </div>
@@ -713,6 +722,13 @@ h1 em{font-style:normal;color:var(--accent)}
   'use strict';
 
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Paste your demo link between the quotes. While it is empty, the demo links stay hidden. */
+  var DEMO_URL = 'https://agent.retellai.com/orb/agent_30bb5b11f699e534242cf4f0a2?token=ba720a7d1f06ff97dcce3d52c5373d34';
+  if (DEMO_URL && !document.getElementById('retell-widget')) {
+    document.querySelectorAll('[data-demo]').forEach(function (a) { a.href = DEMO_URL; a.hidden = false; });
+    var how = document.getElementById('howLink'); if (how) how.hidden = true;
+  }
 
   /* ---------------------------------------------------
      1. PAGE LOAD + SCROLL REVEALS
@@ -774,7 +790,7 @@ h1 em{font-style:normal;color:var(--accent)}
     }
     requestAnimationFrame(frame);
   }
-  if ('IntersectionObserver' in window) {
+  if ('IntersectionObserver' in window && !reduce) {
     var cio = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
         if (e.isIntersecting) { countUp(69); cio.unobserve(e.target); }
@@ -807,7 +823,6 @@ h1 em{font-style:normal;color:var(--accent)}
   /* ---------------------------------------------------
      5. LIVE CALL SIMULATION
      --------------------------------------------------- */
-  var WEBHOOK_URL = 'https://hook.us2.make.com/u6ms9lecg20wqk6bl48rnyxvsdpuuuge';
 
   var SCENARIOS = [
     {
@@ -894,47 +909,6 @@ h1 em{font-style:normal;color:var(--accent)}
     }, 1000);
   }
 
-  /* ---------------------------------------------------
-     6. WAITLIST FORM
-     --------------------------------------------------- */
-  var form = document.getElementById('wlForm');
-  var submitBtn = document.getElementById('submitBtn');
-  var submitLabel = document.getElementById('submitLabel');
-  var submitIcon = document.getElementById('submitIcon');
-  var formError = document.getElementById('formError');
-  var formWrap = document.getElementById('formWrap');
-
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    if (!form.checkValidity()) { form.reportValidity(); return; }
-
-    submitBtn.disabled = true;
-    submitLabel.textContent = 'Joining…';
-    submitIcon.classList.add('spin');
-    formError.hidden = true;
-
-    var data = new URLSearchParams();
-    var fd = new FormData(form);
-    ['name', 'company', 'city', 'email'].forEach(function (k) { data.append(k, fd.get(k)); });
-
-    fetch(WEBHOOK_URL, { method: 'POST', mode: 'no-cors', body: data })
-      .then(function () {
-        formWrap.innerHTML =
-          '<div class="done fade-swap">' +
-            '<span class="done-ico">' +
-              '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>' +
-            '</span>' +
-            '<strong>You\'re on the list.</strong>' +
-            '<span>Check your inbox soon.</span>' +
-          '</div>';
-      })
-      .catch(function () {
-        submitBtn.disabled = false;
-        submitLabel.textContent = 'Join the waitlist';
-        submitIcon.classList.remove('spin');
-        formError.hidden = false;
-      });
-  });
 })();
 </script>
 </body>
